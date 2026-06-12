@@ -1,0 +1,103 @@
+# VS Code Policy Diagnostics
+
+_WARNING: This file may contain sensitive information._
+
+## System Information
+
+| Property  | Value                                    |
+| --------- | ---------------------------------------- |
+| Generated | 2026-06-05T17:34:06.472Z                 |
+| Product   | Visual Studio Code 1.122.1               |
+| Commit    | 8761a5560cfd65fdd19ce7e2bd18dab5c0a4d84e |
+
+## Account Information
+
+### Default Account Summary
+
+**Account ID/Username**: 157478587
+
+**Account Label**: Greg-666
+
+### Detailed Account Properties
+
+| Property               | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| authenticationProvider | {"id":"github","name":"GitHub","enterprise":false}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| accountName            | Greg-666                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| sessionId              | \*\*\*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| enterprise             | false                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| entitlementsData       | {"login":"Greg-666","access_type_sku":"free_limited_copilot","analytics_tracking_id":"be866c8b90f4aca95d9296ccca5d59bf","assigned_date":"2026-01-13T18:14:52+01:00","can_signup_for_limited":false,"chat_enabled":true,"cli_enabled":true,"copilotignore_enabled":false,"copilot_plan":"individual","editor_preview_features_enabled":true,"is_mcp_enabled":true,"organization_login_list":[],"organization_list":[],"restricted_telemetry":true,"cli_remote_control_enabled":true,"cloud_session_storage_enabled":false,"endpoints":{"api":"https://api.individual.githubcopilot.com","origin-tracker":"https://origin-tracker.individual.githubcopilot.com","proxy":"https://proxy.individual.githubcopilot.com","telemetry":"https://telemetry.individual.githubcopilot.com"},"can_upgrade_plan":false,"quota_snapshots":{"chat":{"overage_count":0,"overage_permitted":false,"percent_remaining":100,"quota_id":"chat","quota_remaining":200,"unlimited":false,"timestamp_utc":"2026-06-05T16:50:49.662Z","has_quota":false,"quota_reset_at":0,"token_based_billing":true,"remaining":200,"entitlement":200},"completions":{"overage_count":0,"overage_permitted":false,"percent_remaining":100,"quota_id":"completions","quota_remaining":2000,"unlimited":false,"timestamp_utc":"2026-06-05T16:50:49.662Z","has_quota":false,"quota_reset_at":0,"token_based_billing":true,"remaining":2000,"entitlement":2000},"premium_interactions":{"overage_count":0,"overage_permitted":false,"percent_remaining":0,"quota_id":"premium_interactions","quota_remaining":0,"unlimited":false,"timestamp_utc":"2026-06-05T16:50:49.662Z","has_quota":false,"quota_reset_at":0,"token_based_billing":true,"remaining":0,"entitlement":0}},"token_based_billing":true,"quota_reset_date":"2026-07-01","quota_reset_date_utc":"2026-07-01T00:00:00.000Z"} |
+| policyData             | {"chat_agent_enabled":true,"chat_preview_features_enabled":true,"mcp":true,"session_search":0}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+
+## Account Policy Gate
+
+| Property                         | Value      |
+| -------------------------------- | ---------- |
+| State                            | `inactive` |
+| Reason                           | _n/a_      |
+| ChatApprovedAccountOrganizations | _not set_  |
+
+**Legend**
+
+- `inactive`: gate disabled (no approved orgs configured) — policies behave as account data dictates.
+- `satisfied`: gate active and approved — account policy values flow normally.
+- `restricted`: gate active and not satisfied — opted-in policies forced to their restricted value.
+  - `noAccount`: no default account signed in.
+  - `wrongProvider`: signed in with a non-GitHub provider.
+  - `orgNotApproved`: signed in but account is not a member of any approved organization.
+  - `policyNotResolved`: signed in to an approved org but account-side policy data has not yet been fetched.
+
+## Policy-Controlled Settings
+
+### Applied Policy
+
+_No settings are currently controlled by policies_
+
+### Non-applied Policy
+
+| Setting Key                                       | Policy Name                                    |
+| ------------------------------------------------- | ---------------------------------------------- |
+| extensions.allowed                                | AllowedExtensions                              |
+| chat.tools.global.autoApprove                     | ChatToolsAutoApprove                           |
+| chat.sessionSync.enabled                          | CopilotSessionSync                             |
+| chat.tools.eligibleForAutoApproval                | ChatToolsEligibleForAutoApproval               |
+| chat.mcp.access                                   | ChatMCP                                        |
+| chat.extensionTools.enabled                       | ChatAgentExtensionTools                        |
+| chat.plugins.enabled                              | ChatPluginsEnabled                             |
+| chat.agent.enabled                                | ChatAgentMode                                  |
+| chat.agent.networkFilter                          | ChatAgentNetworkFilter                         |
+| chat.agent.allowedNetworkDomains                  | ChatAgentAllowedNetworkDomains                 |
+| chat.agent.deniedNetworkDomains                   | ChatAgentDeniedNetworkDomains                  |
+| chat.editMode.hidden                              | DeprecatedEditModeHidden                       |
+| chat.mcp.gallery.serviceUrl                       | McpGalleryServiceUrl                           |
+| chat.useHooks                                     | ChatHooks                                      |
+| chat.approvedAccountOrganizations                 | ChatApprovedAccountOrganizations               |
+| extensions.gallery.serviceUrl                     | ExtensionGalleryServiceUrl                     |
+| chat.tools.terminal.enableAutoApprove             | ChatToolsTerminalEnableAutoApprove             |
+| chat.agent.sandbox.enabled                        | ChatAgentSandboxEnabled                        |
+| chat.agent.sandbox.allowUnsandboxedCommands       | ChatAgentSandboxAllowUnsandboxedCommands       |
+| chat.agent.sandbox.autoApproveUnsandboxedCommands | ChatAgentSandboxAutoApproveUnsandboxedCommands |
+| chat.agent.sandbox.allowAutoApprove               | ChatAgentSandboxAllowAutoApprove               |
+| update.mode                                       | UpdateMode                                     |
+| telemetry.telemetryLevel                          | TelemetryLevel                                 |
+| telemetry.feedback.enabled                        | EnableFeedback                                 |
+| workbench.browser.enableChatTools                 | BrowserChatTools                               |
+
+## Authentication Information
+
+### Authentication Providers
+
+| Provider ID       | Sessions | Accounts |
+| ----------------- | -------- | -------- |
+| github            | 2        | Greg-666 |
+| github-enterprise | 0        | None     |
+| dbclient.auth     | 0        | None     |
+
+### Detailed Session Information
+
+#### github
+
+| Account  | Scopes                                | Extensions with Access                                                                                                                                                                                                                                                                                                                      |
+| -------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Greg-666 | repo, workflow, user:email, read:user | GitHub (trusted), Local Tunnel Port Forwarding, github.remotehub (trusted), ms-vscode.remote-server (trusted), github.vscode-pull-request-github (trusted), github.codespaces (trusted), github.copilot (trusted), github.copilot-chat (trusted), ms-vsliveshare.vsliveshare (trusted), ms-azuretools.vscode-azure-github-copilot (trusted) |
+| Greg-666 | user:email, read:org                  | GitHub (trusted), Local Tunnel Port Forwarding, github.remotehub (trusted), ms-vscode.remote-server (trusted), github.vscode-pull-request-github (trusted), github.codespaces (trusted), github.copilot (trusted), github.copilot-chat (trusted), ms-vsliveshare.vsliveshare (trusted), ms-azuretools.vscode-azure-github-copilot (trusted) |

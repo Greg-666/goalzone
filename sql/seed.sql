@@ -10,6 +10,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+SET FOREIGN_KEY_CHECKS=0;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -21,13 +22,29 @@ SET time_zone = "+00:00";
 -- Base de données : `5bx75_k7m_db`
 --
 
+-- ========================================
+-- DROP des tables dans le bon ordre (dépendances d'abord)
+-- ========================================
+DROP TABLE IF EXISTS `favoris`;
+DROP TABLE IF EXISTS `matchs`;
+DROP TABLE IF EXISTS `joueurs`;
+DROP TABLE IF EXISTS `equipes`;
+DROP TABLE IF EXISTS `groupes`;
+DROP TABLE IF EXISTS `confederations`;
+DROP TABLE IF EXISTS `stades`;
+DROP TABLE IF EXISTS `messages_contact`;
+DROP TABLE IF EXISTS `utilisateurs`;
+
+-- ========================================
+-- CRÉATION des tables
+-- ========================================
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `confederations`
 --
 
-DROP TABLE IF EXISTS `confederations`;
 CREATE TABLE `confederations` (
   `id` int(11) NOT NULL,
   `code` varchar(10) NOT NULL,
@@ -51,7 +68,6 @@ INSERT INTO `confederations` (`id`, `code`, `nom`) VALUES(6, 'OFC', 'Confédéra
 -- Structure de la table `equipes`
 --
 
-DROP TABLE IF EXISTS `equipes`;
 CREATE TABLE `equipes` (
   `id` int(11) NOT NULL,
   `nom` varchar(100) NOT NULL,
@@ -120,7 +136,6 @@ INSERT INTO `equipes` (`id`, `nom`, `code_pays`, `drapeau_url`, `groupe_id`, `co
 -- Structure de la table `favoris`
 --
 
-DROP TABLE IF EXISTS `favoris`;
 CREATE TABLE `favoris` (
   `utilisateur_id` int(11) NOT NULL,
   `equipe_id` int(11) NOT NULL
@@ -142,7 +157,6 @@ INSERT INTO `favoris` (`utilisateur_id`, `equipe_id`) VALUES(3, 10);
 -- Structure de la table `groupes`
 --
 
-DROP TABLE IF EXISTS `groupes`;
 CREATE TABLE `groupes` (
   `id` int(11) NOT NULL,
   `nom` char(1) NOT NULL
@@ -171,7 +185,6 @@ INSERT INTO `groupes` (`id`, `nom`) VALUES(12, 'L');
 -- Structure de la table `joueurs`
 --
 
-DROP TABLE IF EXISTS `joueurs`;
 CREATE TABLE `joueurs` (
   `id` int(11) NOT NULL,
   `nom` varchar(100) NOT NULL,
@@ -480,7 +493,6 @@ INSERT INTO `joueurs` (`id`, `nom`, `prenom`, `poste`, `numero`, `equipe_id`) VA
 -- Structure de la table `matchs`
 --
 
-DROP TABLE IF EXISTS `matchs`;
 CREATE TABLE `matchs` (
   `id` int(11) NOT NULL,
   `equipe_dom_id` int(11) NOT NULL,
@@ -494,13 +506,44 @@ CREATE TABLE `matchs` (
   `apercu_genere` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- Déchargement des données de la table `matchs`
+--
+INSERT INTO `matchs` (`id`, `equipe_dom_id`, `equipe_ext_id`, `stade_id`, `date_match`, `score_dom`, `score_ext`, `phase`, `apercu_ia`, `apercu_genere`) VALUES
+(1, 1, 2, 14, '2026-06-11 20:00:00', 2, 0, 'groupes', NULL, 0),
+(2, 3, 4, 15, '2026-06-11 20:00:00', 2, 1, 'groupes', NULL, 0),
+(3, 5, 8, 11, '2026-06-12 15:00:00', 1, 1, 'groupes', NULL, 0),
+(4, 13, 14, 3, '2026-06-12 18:00:00', 4, 1, 'groupes', NULL, 0),
+(5, 7, 6, 4, '2026-06-13 12:00:00', 1, 1, 'groupes', NULL, 0),
+(6, 9, 10, 1, '2026-06-13 18:00:00', 1, 1, 'groupes', NULL, 0),
+(7, 11, 12, 10, '2026-06-13 21:00:00', 0, 1, 'groupes', NULL, 0),
+(8, 15, 16, 11, '2026-06-13 21:00:00', 2, 0, 'groupes', NULL, 0),
+(9, 17, 18, 2, '2026-06-14 12:00:00', 7, 1, 'groupes', NULL, 0),
+(10, 19, 20, 9, '2026-06-14 19:00:00', 1, 0, 'groupes', NULL, 0),
+(11, 21, 22, 14, '2026-06-14 15:00:00', 2, 2, 'groupes', NULL, 0),
+(12, 23, 24, 15, '2026-06-14 20:00:00', 5, 1, 'groupes', NULL, 0),
+(13, 25, 26, 8, '2026-06-15 12:00:00', 1, 1, 'groupes', NULL, 0),
+(14, 27, 28, 5, '2026-06-15 18:00:00', 2, 2, 'groupes', NULL, 0),
+(15, 29, 30, 6, '2026-06-15 12:00:00', 0, 0, 'groupes', NULL, 0),
+(16, 31, 32, 6, '2026-06-15 18:00:00', 1, 1, 'groupes', NULL, 0),
+(17, 33, 34, 1, '2026-06-16 15:00:00', 3, 1, 'groupes', NULL, 0),
+(18, 36, 35, 10, '2026-06-16 18:00:00', 1, 4, 'groupes', NULL, 0),
+(19, 37, 38, 7, '2026-06-16 20:00:00', 3, 0, 'groupes', NULL, 0),
+(20, 39, 40, 4, '2026-06-16 21:00:00', 3, 1, 'groupes', NULL, 0),
+(21, 41, 44, 2, '2026-06-17 12:00:00', 1, 1, 'groupes', NULL, 0),
+(22, 43, 42, 14, '2026-06-17 20:00:00', 1, 3, 'groupes', NULL, 0),
+(23, 45, 46, 14, '2026-06-17 15:00:00', 4, 2, 'groupes', NULL, 0),
+(24, 47, 48, 12, '2026-06-17 19:00:00', 1, 0, 'groupes', NULL, 0),
+(25, 4, 2, 14, '2026-06-18 12:00:00', 1, 1, 'groupes', NULL, 0),
+(26, 6, 8, 3, '2026-06-18 12:00:00', 4, 1, 'groupes', NULL, 0),
+(27, 5, 7, 11, '2026-06-18 15:00:00', 6, 0, 'groupes', NULL, 0),
+(28, 1, 3, 15, '2026-06-18 19:00:00', 1, 0, 'groupes', NULL, 0);
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `messages_contact`
 --
 
-DROP TABLE IF EXISTS `messages_contact`;
 CREATE TABLE `messages_contact` (
   `id` int(11) NOT NULL,
   `nom` varchar(100) NOT NULL,
@@ -525,7 +568,6 @@ INSERT INTO `messages_contact` (`id`, `nom`, `email`, `sujet`, `message`, `lu`, 
 -- Structure de la table `stades`
 --
 
-DROP TABLE IF EXISTS `stades`;
 CREATE TABLE `stades` (
   `id` int(11) NOT NULL,
   `nom` varchar(150) NOT NULL,
@@ -561,7 +603,6 @@ INSERT INTO `stades` (`id`, `nom`, `ville`, `pays`, `capacite`) VALUES(16, 'Esta
 -- Structure de la table `utilisateurs`
 --
 
-DROP TABLE IF EXISTS `utilisateurs`;
 CREATE TABLE `utilisateurs` (
   `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -730,6 +771,8 @@ ALTER TABLE `matchs`
   ADD CONSTRAINT `matchs_ibfk_2` FOREIGN KEY (`equipe_ext_id`) REFERENCES `equipes` (`id`),
   ADD CONSTRAINT `matchs_ibfk_3` FOREIGN KEY (`stade_id`) REFERENCES `stades` (`id`);
 COMMIT;
+
+SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
